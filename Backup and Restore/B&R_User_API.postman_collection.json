@@ -1,0 +1,319 @@
+{
+	"info": {
+		"_postman_id": "17e218b9-931a-4f6b-99eb-b1f0dd15864a",
+		"name": "B&R_User_API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Associate user with group",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "fdd0f53a-72f3-434e-b6aa-7a7b5263536e",
+						"exec": [
+							"//Check whether the response code is correct",
+							"pm.test(\"Status code is 200\", function() {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"//Checking the response time",
+							"pm.test(\"Response time is less than 200ms\", function() {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});",
+							"",
+							"//Checking the success tag value",
+							"pm.test(\"Success tag should have true value\", function() {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.success).is.to.equal(true);",
+							"});",
+							"",
+							"//Checking the message tag value",
+							"pm.test(\"Message tag should have success value\", function() {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.message).is.to.equal(\"Success\");",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "X-XSRF-TOKEN",
+						"value": "UiHjb3Q9pV5GZjI2NDFhOTEtMzQ2ZS00YzVhLTg1OTMtZmFhMzVhODJhZjM3"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[3 ,4, 11]"
+				},
+				"url": {
+					"raw": "https://192.168.0.156:8390/darkBackupServer/rest/admin/groups/9/user",
+					"protocol": "https",
+					"host": [
+						"192",
+						"168",
+						"0",
+						"156"
+					],
+					"port": "8390",
+					"path": [
+						"darkBackupServer",
+						"rest",
+						"admin",
+						"groups",
+						"9",
+						"user"
+					]
+				},
+				"description": "Associate user with group"
+			},
+			"response": []
+		},
+		{
+			"name": "Get userlist",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "bd398c31-b35a-42b0-a382-e434c38a759d",
+						"exec": [
+							"//Check whether the response code is correct",
+							"pm.test(\"Status code is 200\", function() {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"//Checking the response time",
+							"pm.test(\"Response time is less than 200ms\", function() {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});",
+							"",
+							"//Checking the success tag value",
+							"pm.test(\"Success tag should have true value\", function() {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.success).is.to.equal(true);",
+							"});",
+							"",
+							"//Checking the message tag value",
+							"pm.test(\"Message tag should have success value\", function() {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.message).is.to.equal(\"Success\");",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "X-XSRF-TOKEN",
+						"value": "asMwO5fe-kIeM2ZlMzNmZmItN2E0Ny00YzEyLWE3OTAtYzBmNTk4N2FjOGU4"
+					}
+				],
+				"url": {
+					"raw": "https://192.168.0.156:8390/darkBackupServer/rest/admin/userlist",
+					"protocol": "https",
+					"host": [
+						"192",
+						"168",
+						"0",
+						"156"
+					],
+					"port": "8390",
+					"path": [
+						"darkBackupServer",
+						"rest",
+						"admin",
+						"userlist"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f20a1ac9-59d7-4746-9faf-e08009206cd9",
+						"exec": [
+							"//Check whether the response code is correct",
+							"pm.test(\"Status code is 200\", function() {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"//Checking the response time",
+							"pm.test(\"Response time is less than 200ms\", function() {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});",
+							"",
+							"//Checking the username tag value",
+							"pm.test(\"Username tag value\", function() {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.userName).is.to.equal(\"user\");",
+							"});",
+							"",
+							"//Checking the email address tag value",
+							"pm.test(\"Email Address tag value\", function() {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.emailAddress).is.to.equal(\"user@dm.ae\");",
+							"});",
+							"",
+							"//Checking the available tag value",
+							"pm.test(\"Available tag value\", function() {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.available).is.to.equal(true);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "X-XSRF-TOKEN",
+						"value": "BC7QhiCz7QDcMTQ0ZmNiYmEtNTgwMS00Y2Y5LWIyYmEtY2FkOGY0M2NjNDdh"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"emailAddress\":\"user@dm.ae\",\n\t\"alternateEmailAddress\":\"\",\n\t\"userName\":\"user\"\n}"
+				},
+				"url": {
+					"raw": "https://192.168.0.156:8390/darkBackupServer/rest/admin/users",
+					"protocol": "https",
+					"host": [
+						"192",
+						"168",
+						"0",
+						"156"
+					],
+					"port": "8390",
+					"path": [
+						"darkBackupServer",
+						"rest",
+						"admin",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Authenticate",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "cd1b09e7-8052-4702-bf1e-b7cd76ca8949",
+						"exec": [
+							"//Check whether the response code is correct",
+							"pm.test(\"Status code is 200\", function() {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"//Checking the response time",
+							"pm.test(\"Response time is less than 200ms\", function() {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});",
+							"",
+							"//Checking the Result tag value",
+							"pm.test(\"Result tag should have success value\", function() {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.result).is.to.equal(\"SUCCESS\");",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Host",
+						"value": "localhost:8345"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain"
+					},
+					{
+						"key": "Origin",
+						"value": "https://localhost:8345/"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Referer",
+						"value": "https://localhost:8345/"
+					},
+					{
+						"key": "Accept-Encoding",
+						"value": "gzip, deflate, br"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en-US,en;q=0.9"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"userId\":\"admin\",\"usercred\":\"b1a2ab2db1e6f6a0362928e8425484248c0f15443c863d695a69150dd9821772562f64325834ae9db2a3de6ed5d6287e0699ceb1a6ab418a61a56e9352d9af94\"}"
+				},
+				"url": {
+					"raw": "https://192.168.0.156:8390/darkserverAdmin/rest/user/authenticate",
+					"protocol": "https",
+					"host": [
+						"192",
+						"168",
+						"0",
+						"156"
+					],
+					"port": "8390",
+					"path": [
+						"darkserverAdmin",
+						"rest",
+						"user",
+						"authenticate"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

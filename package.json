@@ -1,0 +1,15 @@
+{
+  "name": "postman-jenkins",
+  "version": "1.0.0",
+  "description": "Project Project for storing Back up and Restore tests",
+  "directories": {
+    "test":"tests"
+  },
+  "scripts": {
+    "b&r-api-test": "newman run Backup and Restore/B&R_Group_API.postman_collection.json"
+  },
+  "author": "Apoorav Misra",
+  "dependencies": {
+    "newman": "^4.5.5"
+  }
+}
