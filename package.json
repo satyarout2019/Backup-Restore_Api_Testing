@@ -6,7 +6,7 @@
     "test":"tests"
   },
   "scripts": {
-    "b&r-api-test": "newman run "Backup and Restore"/"B&R_Group_API.postman_collection.json" --insecure"
+    "b&r-api-test": "newman run Backup and Restore/B&R_Group_API.postman_collection.json --insecure"
   },
   "author": "Apoorav Misra",
   "dependencies": {
